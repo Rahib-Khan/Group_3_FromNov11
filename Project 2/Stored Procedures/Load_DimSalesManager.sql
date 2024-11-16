@@ -27,18 +27,21 @@ BEGIN
 
 
     INSERT INTO [CH01-01-Dimension].[SalesManagers]
-        (SalesManager, Category, UserAuthorizationKey, DateAdded, DateOfLastUpdate)
+        (SalesManager,
+        Category,
+        UserAuthorizationKey,
+        DateAdded,
+        DateOfLastUpdate)
 
-    SELECT DISTINCT OLD.[SalesManager], OLD.[ProductSubcategory] , @UserAuthorizationKey, @DateAdded, @DateOfLastUpdate
+    SELECT
+        DISTINCT OLD.[SalesManager],
+        OLD.[ProductSubcategory] ,
+        @UserAuthorizationKey,
+        @DateAdded,
+        @DateOfLastUpdate
     FROM FileUpload.OriginallyLoadedData AS OLD
 
-    --UPDATE [CH01-01-Dimension].[SalesManagers]
-    --SET Office = 'Redmond'
-    --WHERE SalesManager = 'Maurizio Macagno' OR SalesManager = 'Marco Russo';
 
-    --UPDATE [CH01-01-Dimension].[SalesManagers]
-    --SET Office = 'Seattle'
-    --WHERE SalesManager = 'Alberto Ferrari' OR SalesManager = 'Luis Bonifaz';
 
     DECLARE @EndingDateTime DATETIME2;
     set @EndingDateTime = SYSDATETIME()
@@ -50,10 +53,17 @@ BEGIN
     ----New Table View----
 
     EXEC('
-    DROP VIEW IF EXISTS G10_3.SalesManagers')
+    DROP VIEW IF EXISTS G10_3.DimSalesManagers')
     EXEC('
-    CREATE VIEW G10_3.SalesManagers AS
-    SELECT SalesManagerKey, SalesManager, Category, Office, UserAuthorizationKey, DateAdded, DateOfLastUpdate
+    CREATE VIEW G10_3.DimSalesManagers AS
+    SELECT 
+    SalesManagerKey, 
+    SalesManager, 
+    Category, 
+    Office, 
+    UserAuthorizationKey, 
+    DateAdded, 
+    DateOfLastUpdate
     FROM [CH01-01-Dimension].[SalesManagers] ')
 
     ----New Table View----
@@ -67,6 +77,6 @@ BEGIN
 
 
     SELECT *
-    FROM G10_3.SalesManagers
+    FROM G10_3.DimSalesManagers
 END
 GO

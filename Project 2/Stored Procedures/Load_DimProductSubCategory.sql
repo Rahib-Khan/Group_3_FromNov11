@@ -46,7 +46,13 @@ BEGIN
     DROP VIEW IF EXISTS G10_3.DimProductSubCategory');
     EXEC ('
     CREATE VIEW G10_3.DimProductSubCategory AS
-    SELECT ProductSubCategoryKey, ProductCategoryKey, ProductSubcategory, UserAuthorizationKey, DateAdded, DateOfLastUpdate
+    SELECT 
+    ProductSubCategoryKey, 
+    ProductCategoryKey, 
+    ProductSubcategory, 
+    UserAuthorizationKey, 
+    DateAdded, 
+    DateOfLastUpdate
     FROM [CH01-01-Dimension].[DimProductSubCategory] ');
     ---VIEW for NEW Table--
 

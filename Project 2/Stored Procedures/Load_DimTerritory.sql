@@ -25,9 +25,22 @@ BEGIN
     SET @StartingDateTime = SYSDATETIME();
 
     INSERT INTO [CH01-01-Dimension].DimTerritory
-        ([TerritoryRegion], [TerritoryCountry], [TerritoryGroup], UserAuthorizationKey, DateAdded, DateOfLastUpdate)
+        (
+        [TerritoryRegion],
+        [TerritoryCountry],
+        [TerritoryGroup],
+        UserAuthorizationKey,
+        DateAdded,
+        DateOfLastUpdate)
 
-    SELECT DISTINCT OLD.[TerritoryRegion], OLD.[TerritoryCountry], OLD.[TerritoryGroup], @UserAuthorizationKey, @DateAdded, @DateOfLastUpdate
+    SELECT
+        DISTINCT
+        OLD.[TerritoryRegion],
+        OLD.[TerritoryCountry],
+        OLD.[TerritoryGroup],
+        @UserAuthorizationKey,
+        @DateAdded,
+        @DateOfLastUpdate
     FROM FileUpload.OriginallyLoadedData AS OLD
 
 
@@ -42,7 +55,14 @@ BEGIN
     DROP VIEW IF EXISTS G10_3.DimTerritory')
     EXEC('
     CREATE VIEW G10_3.DimTerritory AS
-    SELECT TerritoryKey, TerritoryGroup, TerritoryCountry, TerritoryRegion, UserAuthorizationKey, DateAdded, DateOfLastUpdate
+    SELECT 
+    TerritoryKey, 
+    TerritoryGroup, 
+    TerritoryCountry, 
+    TerritoryRegion, 
+    UserAuthorizationKey, 
+    DateAdded, 
+    DateOfLastUpdate
     FROM [CH01-01-Dimension].[DimTerritory] ')
 
 

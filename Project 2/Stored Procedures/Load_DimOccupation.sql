@@ -28,9 +28,16 @@ BEGIN
     SET @StartingDateTime = SYSDATETIME();
 
     INSERT INTO [CH01-01-Dimension].[DimOccupation]
-        (Occupation,UserAuthorizationKey,DateAdded,DateOfLastUpdate)
-    SELECT DISTINCT FileUpload.OriginallyLoadedData.[Occupation], @UserAuthorizationKey, @DateAdded, @DateOfLastUpdate
-    FROM FileUpload.OriginallyLoadedData
+        (Occupation,
+        UserAuthorizationKey,
+        DateAdded,
+        DateOfLastUpdate)
+    SELECT
+        DISTINCT Old.[Occupation],
+        @UserAuthorizationKey,
+        @DateAdded,
+        @DateOfLastUpdate
+    FROM FileUpload.OriginallyLoadedData AS OLD
 
 
     ---VIEW for NEW Table---
@@ -38,7 +45,12 @@ BEGIN
 	DROP VIEW IF EXISTS G10_3.DimOccupation')
     EXEC('
 	CREATE VIEW G10_3.DimOccupation AS
-	SELECT OccupationKey,Occupation,UserAuthorizationKey,DateAdded,DateOfLastUpdate
+	SELECT 
+    OccupationKey,
+    Occupation,
+    UserAuthorizationKey,
+    DateAdded,
+    DateOfLastUpdate
 	FROM [CH01-01-Dimension].[DimOccupation] ')
     ---VIEW for NEW Table--
 

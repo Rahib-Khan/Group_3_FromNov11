@@ -25,12 +25,25 @@ BEGIN
     SET @StartingDateTime = SYSDATETIME();
 
 
-    insert into [CH01-01-Dimension].[DimOrderDate]
-        ([OrderDate],[MonthName],MonthNumber,[Year],UserAuthorizationKey,DateAdded,DateOfLastUpdate)
+    INSERT into [CH01-01-Dimension].[DimOrderDate]
+        ([OrderDate]
+        ,[MonthName]
+        ,MonthNumber,
+        [Year],
+        UserAuthorizationKey,
+        DateAdded,
+        DateOfLastUpdate)
 
-    select DISTINCT A.[OrderDate], A.[MonthName], A.MonthNumber, A.[Year], @UserAuthorizationKey, @DateAdded, @DateOfLastUpdate
-    from FileUpload.OriginallyLoadedData as A
-    ORDER BY A.OrderDate
+    SELECT
+        DISTINCT OLD.[OrderDate],
+        OLD.[MonthName],
+        OLD.MonthNumber,
+        OLD.[Year],
+        @UserAuthorizationKey,
+        @DateAdded,
+        @DateOfLastUpdate
+    from FileUpload.OriginallyLoadedData as OLD
+    ORDER BY OLD.OrderDate
 
     ---VIEW for NEW Table---
     EXEC('

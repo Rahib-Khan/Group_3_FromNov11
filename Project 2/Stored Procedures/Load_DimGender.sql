@@ -27,8 +27,17 @@ BEGIN
 
     INSERT INTO [CH01-01-Dimension].[DimGender]
         (
-        Gender, GenderDescription, UserAuthorizationKey, DateAdded, DateOfLastUpdate)
-    SELECT DISTINCT Gender, CASE Gender WHEN 'M' THEN 'Male' ELSE 'Female' END AS GenderDescription, @UserAuthorizationKey, @DateAdded, @DateOfLastUpdate
+        Gender,
+        GenderDescription,
+        UserAuthorizationKey,
+        DateAdded,
+        DateOfLastUpdate)
+    SELECT DISTINCT
+        Gender,
+        CASE Gender WHEN 'M' THEN 'Male' ELSE 'Female' END AS GenderDescription,
+        @UserAuthorizationKey,
+        @DateAdded,
+        @DateOfLastUpdate
     FROM FileUpload.OriginallyLoadedData
 
 
@@ -37,7 +46,12 @@ BEGIN
     DROP VIEW IF EXISTS G10_3.DimGender')
     EXEC('
     CREATE VIEW G10_3.DimGender AS
-    SELECT Gender, GenderDescription, UserAuthorizationKey, DateAdded, DateOfLastUpdate
+    SELECT 
+    Gender,
+    GenderDescription,
+    UserAuthorizationKey, 
+    DateAdded, 
+    DateOfLastUpdate
     FROM [CH01-01-Dimension].[DimGender] ')
     ---VIEW for NEW Table--
 

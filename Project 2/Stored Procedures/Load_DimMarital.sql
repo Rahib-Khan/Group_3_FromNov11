@@ -51,7 +51,12 @@ BEGIN
     DROP VIEW IF EXISTS G10_3.DimMaritalStatus');
     EXEC ('
     CREATE VIEW G10_3.DimMaritalStatus AS
-    SELECT MaritalStatus, MaritalStatusDescription, UserAuthorizationKey, DateAdded, DateOfLastUpdate
+    SELECT 
+    MaritalStatus, 
+    MaritalStatusDescription, 
+    UserAuthorizationKey, 
+    DateAdded, 
+    DateOfLastUpdate
     FROM [CH01-01-Dimension].[DimMaritalStatus] ');
     ---VIEW for NEW Table--
     DECLARE @EndingDateTime DATETIME2;

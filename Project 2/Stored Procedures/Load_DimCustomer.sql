@@ -27,8 +27,16 @@ BEGIN
 
     INSERT INTO [CH01-01-Dimension].[DimCustomer]
         (
-        CustomerName, UserAuthorizationKey, DateAdded, DateOfLastUpdate)
-    SELECT DISTINCT CustomerName, @UserAuthorizationKey, @DateAdded, @DateOfLastUpdate
+        CustomerName,
+        UserAuthorizationKey,
+        DateAdded,
+        DateOfLastUpdate)
+    SELECT
+        DISTINCT
+        CustomerName,
+        @UserAuthorizationKey,
+        @DateAdded,
+        @DateOfLastUpdate
     FROM FileUpload.OriginallyLoadedData
 
 
@@ -37,7 +45,12 @@ BEGIN
     DROP VIEW IF EXISTS G10_3.DimCustomer')
     EXEC('
     CREATE VIEW G10_3.DimCustomer AS
-    SELECT CustomerKey, CustomerName, UserAuthorizationKey, DateAdded, DateOfLastUpdate
+    SELECT 
+    CustomerKey, 
+    CustomerName,
+    UserAuthorizationKey, 
+    DateAdded,
+    DateOfLastUpdate
     FROM [CH01-01-Dimension].[DimCustomer] ')
     ---VIEW for NEW Table--
 
