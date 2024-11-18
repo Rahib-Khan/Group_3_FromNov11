@@ -29,13 +29,24 @@ BEGIN
     INSERT INTO [CH01-01-Dimension].[SalesManagers]
         (SalesManager,
         Category,
+        Office,
         UserAuthorizationKey,
         DateAdded,
         DateOfLastUpdate)
 
     SELECT
         DISTINCT OLD.[SalesManager],
-        OLD.[ProductSubcategory] ,
+        OLD.[ProductSubcategory],
+        Office = CASE
+					 WHEN OLD.SalesManager LIKE 'Marco%' THEN
+						 'Redmond'
+					 WHEN OLD.SalesManager LIKE 'Alberto%' THEN
+						 'Seattle'
+					 WHEN OLD.SalesManager LIKE 'Maurizio%' THEN
+						 'Redmond'
+					 ELSE
+						 'Seattle'
+				 END,
         @UserAuthorizationKey,
         @DateAdded,
         @DateOfLastUpdate

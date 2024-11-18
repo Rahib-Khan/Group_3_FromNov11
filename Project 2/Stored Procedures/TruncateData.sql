@@ -23,26 +23,26 @@ BEGIN
     DECLARE @StartingDateTime DATETIME2 = SYSDATETIME();
 
     TRUNCATE TABLE [CH01-01-Dimension].DimCustomer;
-    ALTER SEQUENCE PkSequence.DimCustomerSequenceObject RESTART WITH 1;
+    ALTER SEQUENCE PkSequence.DimCustomerSequence RESTART WITH 1;
     TRUNCATE TABLE [CH01-01-Dimension].DimGender;
     TRUNCATE TABLE [CH01-01-Dimension].DimMaritalStatus;
     TRUNCATE TABLE [CH01-01-Dimension].DimOccupation;
-    ALTER SEQUENCE PkSequence.DimOccupationSequenceObject RESTART WITH 1;
+    ALTER SEQUENCE PkSequence.DimOccupationSequence RESTART WITH 1;
     TRUNCATE TABLE [CH01-01-Dimension].DimOrderDate;
     TRUNCATE TABLE [CH01-01-Dimension].DimProduct;
-    ALTER SEQUENCE PkSequence.DimProductSequenceObject RESTART WITH 1;
+    ALTER SEQUENCE PkSequence.DimProductSequence RESTART WITH 1;
     TRUNCATE TABLE [CH01-01-Dimension].DimProductCategory;
-    ALTER SEQUENCE PkSequence.DimProductCategorySequenceObject RESTART WITH 1;
+    ALTER SEQUENCE PkSequence.DimProductCategorySequence RESTART WITH 1;
     TRUNCATE TABLE [CH01-01-Dimension].DimProductSubCategory;
-    ALTER SEQUENCE PkSequence.DimProductSubCategorySequenceObject RESTART WITH 1;
+    ALTER SEQUENCE PkSequence.DimProductSubCategorySequence RESTART WITH 1;
     TRUNCATE TABLE [CH01-01-Dimension].DimTerritory;
-    ALTER SEQUENCE PkSequence.DimTerritorySequenceObject RESTART WITH 1;
+    ALTER SEQUENCE PkSequence.DimTerritorySequence RESTART WITH 1;
     TRUNCATE TABLE [CH01-01-Dimension].SalesManagers;
-    ALTER SEQUENCE PkSequence.DimSalesManagerSequenceObject RESTART WITH 1;
+    ALTER SEQUENCE PkSequence.SalesManagersSequence RESTART WITH 1;
     TRUNCATE TABLE [CH01-01-Fact].Data;
-    ALTER SEQUENCE PkSequence.DataSequenceObject RESTART WITH 1;
+    ALTER SEQUENCE PkSequence.DataSequence RESTART WITH 1;
     --TRUNCATE table [Process].[WorkflowSteps]
-    --ALTER SEQUENCE PkSequence.WorkFlowStepsSequenceObject RESTART WITH 1
+    --ALTER SEQUENCE PkSequence.WorkFlowStepsSequence RESTART WITH 1
 
     DECLARE @WorkFlowStepTableRowCount INT;
     SET @WorkFlowStepTableRowCount = 0;

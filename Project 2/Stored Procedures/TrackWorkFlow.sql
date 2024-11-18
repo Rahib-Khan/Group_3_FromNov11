@@ -27,7 +27,7 @@ BEGIN
         WorkFlowStepTableRowCount,
         StartingDateTime,
         EndingDateTime,
-        [Class Time],
+        [ClassTime],
         UserAuthorizationKey
         )
     VALUES

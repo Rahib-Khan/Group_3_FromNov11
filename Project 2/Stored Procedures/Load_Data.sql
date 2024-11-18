@@ -55,10 +55,7 @@ BEGIN
         Occupation,
         TerritoryRegion,
         TerritoryCountry,
-        TerritoryGroup,
-        UserAuthorizationKey,
-        DateAdded,
-        DateOfLastUpdate
+        TerritoryGroup
         )
     SELECT DISTINCT
         old.Saleskey,
@@ -89,10 +86,7 @@ BEGIN
         old.Occupation,
         old.TerritoryRegion,
         old.TerritoryCountry,
-        old.TerritoryGroup,
-        @UserAuthorizationKey,
-        @DateAdded,
-        @DateOfLastUpdate
+        old.TerritoryGroup
     FROM
         FileUpload.OriginallyLoadedData AS old LEFT JOIN
         [CH01-01-Dimension].DimProduct AS dp
@@ -144,11 +138,7 @@ BEGIN
 		Occupation,
 		TerritoryRegion,
 		TerritoryCountry,
-		TerritoryGroup,
-		UserAuthorizationKey,
-		DateAdded,
-		DateOfLastUpdate
-    FROM [CH01-01-Fact].[Data] ');
+		TerritoryGroup ');
     ---VIEW for NEW Table--
 
     DECLARE @EndingDateTime DATETIME2;
