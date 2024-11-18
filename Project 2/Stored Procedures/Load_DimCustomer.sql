@@ -3,7 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		Heidi Luna Vicuna
+-- Author:		Marcus Gale
 -- Create date: 11/13/24
 -- Description:	Populating the Customer Table
 -- =============================================
