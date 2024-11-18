@@ -34,9 +34,6 @@ AS
         Occupation,
         TerritoryRegion,
         TerritoryCountry,
-        TerritoryGroup,
-        UserAuthorizationKey,
-        DateAdded,
-        DateOfLastUpdate
+        TerritoryGroup
     FROM [CH01-01-Fact].[Data] 
 GO
