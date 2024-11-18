@@ -3,7 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
--- Author:		Tsering Wangyal Bista Lowa
+-- Author:		Rahib Khandaker
 -- Create date: 11/13/24
 -- Description:	Drop the Foreign Keys From the Star Schema
 -- =============================================

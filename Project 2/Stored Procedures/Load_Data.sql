@@ -138,7 +138,8 @@ BEGIN
 		Occupation,
 		TerritoryRegion,
 		TerritoryCountry,
-		TerritoryGroup ');
+		TerritoryGroup
+        From [CH01-01-Fact].[Data]');
     ---VIEW for NEW Table--
 
     DECLARE @EndingDateTime DATETIME2;
