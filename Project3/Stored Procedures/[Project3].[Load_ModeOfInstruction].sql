@@ -5,7 +5,7 @@ GO
 -- =============================================
 -- Author:		<Heidi Luna Vicuna>
 -- Create date: <12/11/2024>
--- Description:	<Loading data into MOI table>
+-- Description:	<Loading data into Mode Of Instruction table>
 -- =============================================
 ALTER PROCEDURE [Project3].[Load_ModeOfInstruction]
     @UserAuthorizationKey INT

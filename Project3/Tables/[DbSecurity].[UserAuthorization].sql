@@ -30,3 +30,12 @@ ALTER TABLE [DbSecurity].[UserAuthorization] ADD  DEFAULT ('G381_3') FOR [GroupN
 GO
 ALTER TABLE [DbSecurity].[UserAuthorization] ADD  DEFAULT (sysdatetime()) FOR [DateAdded]
 GO
+
+insert into [DbSecurity].[UserAuthorization]
+(GroupMemberLastName,GroupMemberFirstName)
+VALUES
+('Khandaker', 'Rahib'),
+('Vicuna','Heidi Luna'),
+('Bista Lowa', 'Tsering'),
+('Haque','Almas'),
+('Gale','Marcus')
