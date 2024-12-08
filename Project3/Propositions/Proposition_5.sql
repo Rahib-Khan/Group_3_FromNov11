@@ -1,3 +1,9 @@
+-- =================================================================================================================
+-- Author:		<Heidi Luna>
+-- Create date: <12/5/2024>
+-- Description: Return all room locations and their corresponding building locations.
+-- =================================================================================================================  
+
 USE QueensClassSchedule;
 
 SELECT 

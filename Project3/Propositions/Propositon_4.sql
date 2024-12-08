@@ -1,3 +1,10 @@
+-- =================================================================================================================
+-- Author:		<Heidi Luna>
+-- Create date: <12/5/2024>
+-- Description: Show information about all classes offered , including class code, section, time, 
+-- instructor name, days, enrollment limit, current enrollment, and mode of instruction (e.g., in-person or online
+-- =================================================================================================================  
+
 USE QueensClassSchedule;
 SELECT
     Cl.ClassCode,

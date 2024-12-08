@@ -1,3 +1,12 @@
+-- =================================================================================================================
+-- Author:		<Heidi Luna>
+-- Create date: <12/5/2024>
+-- Description: Returns a summary of classes that have met or exceeded their enrollment limit for each day of the week,
+-- including the number of such classes, total enrollment, and total enrollment limit.
+-- =================================================================================================================  
+
+
+
 USE QueensClassSchedule;
 SELECT
     Cl.Days,
